@@ -32,8 +32,8 @@ public class DiscoController extends HttpServlet {
     }
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			
 		
-
 		request.setAttribute("discos", dao.getAll());
 		request.getRequestDispatcher("privado/tabladiscos.jsp").forward(request, response);
 	}
