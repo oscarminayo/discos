@@ -36,16 +36,14 @@
 			      <td>${d.banda}</td>
 			      <td>${d.genero}</td>
 			      <td><img src="${d.caratula}" height="220px" width="216px"></td>
-			      <td><a href="#exampleModal" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Eliminar</a></td>
+			      <td><a href="#modal${d.id}" class="btn btn-danger" data-toggle="modal" data-target="#modal${d.id}">Eliminar</a></td>
 			    </tr>
-		  	</c:forEach>
-		  </tbody>
-		</table>
+		  	
 		
 		
 		
 		<!-- Modal -->
-		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal fade" id="modal${d.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
@@ -60,12 +58,16 @@
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 		        
-		        	<a href="EliminarDisco?id=${disco.id}" class="btn btn-danger">ELIMINAR</a>
+		        	<a href="EliminarDisco?id=${d.id}" class="btn btn-danger">ELIMINAR</a>
 		        
 		      </div>
 		    </div>
 		  </div>
 		</div>
+		
+		</c:forEach>
+		  </tbody>
+		</table>
 		
 		
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
