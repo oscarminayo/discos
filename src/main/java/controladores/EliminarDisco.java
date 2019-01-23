@@ -10,35 +10,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import daos.DiscoDAO;
-import pojos.Disco;
 
-/**
- * Servlet implementation class DiscoController
- */
-@WebServlet("/DiscoController")
-public class DiscoController extends HttpServlet {
-	DiscoDAO dao;
+
+@WebServlet("/EliminarDisco")
+public class EliminarDisco extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	
-	//parametros
-	
+	DiscoDAO dao;
        
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-    	// TODO Auto-generated method stub
-    	super.init(config);
-    	dao = DiscoDAO.getInstance();
-    }
     
+  @Override
+  	public void init(ServletConfig config) throws ServletException {
+	super.init(config);
+	dao = DiscoDAO.getInstance();
+  	}
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Disco d = new Disco();
+		String parametroId = request.getParameter("id");
+		int id = Integer.parseInt(parametroId);
 		
-		request.setAttribute("disco", d);
-		request.setAttribute("discos", dao.getAll());
-		request.getRequestDispatcher("privado/tabladiscos.jsp").forward(request, response);
+		try {
+			dao.eliminar(id);
+			request.getRequestDispatcher("/DiscoController").forward(request, response);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 	}
 
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

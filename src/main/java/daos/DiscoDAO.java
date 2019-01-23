@@ -87,4 +87,26 @@ public class DiscoDAO{
 			return resul;
 			
 		}
+		
+		public boolean eliminar(int id) throws SQLException{
+			boolean resul = false;
+			
+			String sql = "DELETE FROM discos WHERE id = ?;";
+			
+			try(Connection conn = ConnectionManager.getConnection();
+					PreparedStatement pst = conn.prepareStatement(sql)){
+				
+				pst.setInt(1, id);
+				
+				int affectedRows = pst.executeUpdate();
+				if(affectedRows == 1) {
+					resul = true;
+				}
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			return resul;
+		}
 }

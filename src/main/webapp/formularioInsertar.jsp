@@ -24,19 +24,19 @@
 	<form action="InsertarDisco" method="post">
 	  <div class="form-group">
 	    <label for="titulo">Titulo del disco:</label>
-	    <input type="text" name="titulo" class="form-control">
+	    <input type="text" name="titulo" class="form-control" required>
 	  </div>
 	  <div class="form-group">
 	    <label for="banda">Banda:</label>
-	    <input type="text" name="banda" class="form-control">
+	    <input type="text" name="banda" class="form-control" required>
 	  </div>
 	  <div class="form-group">
 	    <label for="genero">Genero:</label>
-	    <input type="text" name="genero" class="form-control">
+	    <input type="text" name="genero" class="form-control" required>
 	  </div>
 	  <div class="form-group">
 	    <label for="caratula">Caratula:</label>
-	    <input type="text" name="caratula" class="form-control">
+	    <input type="text" name="caratula" class="form-control" required>
 	  </div>
 	  
 	  <button type="submit" class="btn btn-primary">Insertar</button>
